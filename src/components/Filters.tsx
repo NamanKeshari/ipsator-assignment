@@ -40,7 +40,9 @@ function Filters() {
           >
             <option value={"all"}>Choose a category</option>
             {categories?.map((category: any) => (
-              <option value={category}>{category}</option>
+              <option key={category} value={category}>
+                {category}
+              </option>
             ))}
           </select>
         </div>
