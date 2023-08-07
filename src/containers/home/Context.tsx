@@ -119,20 +119,16 @@ const ContextProvider = ({ children }: { children: any }) => {
     ]
   );
 
-  return (
-    <Context.Provider value={contextValue}>
-      {isLoading || searchIsLoading ? (
-        <div className="h-screen w-full flex justify-center items-center">
-          <Loading />
-        </div>
-      ) : isError || searchIsError ? (
-        <div className="h-full w-full flex justify-center items-center">
-          Some Error occurred
-        </div>
-      ) : (
-        children
-      )}
-    </Context.Provider>
+  return isLoading || searchIsLoading ? (
+    <div className="h-screen w-full flex justify-center items-center">
+      <Loading />
+    </div>
+  ) : isError || searchIsError ? (
+    <div className="h-full w-full flex justify-center items-center">
+      Some Error occurred
+    </div>
+  ) : (
+    <Context.Provider value={contextValue}>{children}</Context.Provider>
   );
 };
 
